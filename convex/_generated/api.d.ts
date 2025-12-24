@@ -8,13 +8,17 @@
  * @module
  */
 
+import type * as recommendations from "../recommendations.js";
+
 import type {
   ApiFromModules,
   FilterApi,
   FunctionReference,
 } from "convex/server";
 
-declare const fullApi: ApiFromModules<{}>;
+declare const fullApi: ApiFromModules<{
+  recommendations: typeof recommendations;
+}>;
 
 /**
  * A utility for referencing Convex functions in your app's public API.
