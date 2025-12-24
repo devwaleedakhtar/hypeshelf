@@ -4,14 +4,14 @@ This is the submission for the **HypeShelf** application, built according to you
 
 The goal was to build a shared recommendations hub where friends can collect and share movies. My approach focused on delivering a production-grade application that is not only functional but also **secure**, **scalable**, and **delightful to use**.
 
-I have implemented all requested features (Authentication, Database, Real-time updates) and added significant enhancements to the User Experience and Security architecture.
+Implemented features are (Authentication, Database, Real-time updates) and added significant enhancements to the User Experience and Security architecture.
 
 ---
 
 ## 🏗️ Execution & Architecture
 
 ### 1. Security
-Your requirements called for distinct **User** and **Admin** roles.
+It handles distinct **User** and **Admin** roles.
 *   **Decision**: I implemented a **real-time role system** backed by the Convex database.
 *   **Benefit**: Admin privileges (like deleting any post or setting "Staff Picks") are applied **instantly** without requiring the user to log out and back in. This ensures a seamless administrative experience.
 
