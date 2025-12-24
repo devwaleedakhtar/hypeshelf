@@ -8,7 +8,9 @@
  * @module
  */
 
+import type * as authUtils from "../authUtils.js";
 import type * as recommendations from "../recommendations.js";
+import type * as users from "../users.js";
 
 import type {
   ApiFromModules,
@@ -17,7 +19,9 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  authUtils: typeof authUtils;
   recommendations: typeof recommendations;
+  users: typeof users;
 }>;
 
 /**

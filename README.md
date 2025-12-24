@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HypeShelf | Project Delivery
 
-## Getting Started
+This is the submission for the **HypeShelf** application, built according to your requirements using **Next.js**, **Convex**, and **Clerk**.
 
-First, run the development server:
+## 🎯 Executive Summary
+
+The goal was to build a shared recommendations hub where friends can collect and share movies. My approach focused on delivering a production-grade application that is not only functional but also **secure**, **scalable**, and **delightful to use**.
+
+I have implemented all requested features (Authentication, Database, Real-time updates) and added significant enhancements to the User Experience and Security architecture.
+
+---
+
+## 🏗️ Execution & Architecture
+
+### 1. Robust Security (Database-Backed RBAC)
+Your requirements called for distinct **User** and **Admin** roles.
+*   **Decision**: Instead of relying on static token metadata (which causes delays in permission updates), I implemented a **real-time role system** backed by the Convex database.
+*   **Benefit**: Admin privileges (like deleting any post or setting "Staff Picks") are applied **instantly** without requiring the user to log out and back in. This ensures a seamless administrative experience.
+
+### 2. Premium User Experience (UX)
+To ensure high engagement, the application was built with a "feel" that goes beyond standard utility:
+*   **Fluid Animations**: Integrated `framer-motion` for smooth filtering and layout transitions.
+*   **Clean Interface**: Implemented "interaction-heavy" cards where administrative actions are tucked away until hover, keeping the main view clutter-free.
+*   **Accessibility**: Added proper loading states, empty states, and dialogs to guide the user at every step.
+
+---
+
+## 🛠️ Setup Instructions
+
+To deploy or run this project locally, please follow these steps:
+
+### 1. Environment Setup
+Create a `.env.local` file in the root directory with your API keys:
+
+```bash
+NEXT_PUBLIC_CONVEX_URL=...
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=...
+CLERK_SECRET_KEY=...
+```
+
+### 2. Installation & Run
+Install dependencies and start the development environment:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx convex dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Granting Admin Access
+The system uses a secure Database-Backed role assignment. To test Admin features:
+1.  Log in to the application.
+2.  Open the **Convex Dashboard**.
+3.  Navigate to the `users` table.
+4.  Locate your user record and set the `role` field to `"admin"`.
+5.  Your interface will instantly update to reveal Admin controls (Delete buttons, Staff Pick toggles).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## � Tech Stack Verification
 
-## Learn More
+*   ✅ **Framework**: Next.js 16 (App Router)
+*   ✅ **Database**: Convex (Real-time reactivity)
+*   ✅ **Auth**: Clerk (Secure Identity Management)
+*   ✅ **Styling**: Tailwind CSS (Responsive Design)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Thank you for the opportunity to build this. I look forward to your feedback.
